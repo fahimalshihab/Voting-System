@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container" style="background-image: linear-gradient(to bottom, #f7f7f7, #ececec); padding: 20px;">
+    <h1 class="text-center mb-3" style="color: #3498db; font-weight: bold; font-size: 36px;">Poll Questions</h1>
+
+    {% if latest_question_list %}
+      {% for question in latest_question_list %}
+        <div class="card mb-3" style="background-color: #fff; border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+          <div class="card-body">
+            <p class="lead" style="color: #666; font-size: 24px;">{{ question.question_text }}</p>
+            <div class="btn-group" role="group">
+              <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary" style="background-color: #2ecc71; border-color: #2ecc71;">Vote Now!</a>
+              <a href="{% url 'polls:results' question.id %}" class="btn btn-secondary" style="background-color: #95a5a6; border-color: #95a5a6;">Results!</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p style="color: #999; font-size: 18px;">No polls available</p>
+    {% endif %}
+  </div>
+{% endblock %}

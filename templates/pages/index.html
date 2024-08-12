@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card text-center bg-light">  
+    <div class="card-body" style="background-color: #f7f7f7;"> 
+       <h1 style="color: #00698f;">Welcome to Shihab's Vote Center</h1>
+    <p style="color: #333;">Here you can give votes and can make difference.</p>
+    <a class="btn btn-success" href = "{% url 'polls:index' %}"> 
+        View Available Polls! </a>   
+    </div>
+</div>
+{% endblock %}
